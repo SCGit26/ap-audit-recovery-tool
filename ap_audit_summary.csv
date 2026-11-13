@@ -1,0 +1,6 @@
+rule,invoice_id,vendor,amount_at_risk,note
+Exact Duplicate Payment,INV-1006,Midwest Logistics Group,8420.0,"Matched vendor and amount ($8,420.00)"
+Exact Duplicate Payment,INV-1006-DUP,Midwest Logistics Group,8420.0,"Matched vendor and amount ($8,420.00)"
+Exact Duplicate Payment,INV-2044,Apex Cloud Solutions,19750.0,"Matched vendor and amount ($19,750.00)"
+Exact Duplicate Payment,INV-2044A,Apex Cloud Solutions Inc.,19750.0,"Matched vendor and amount ($19,750.00)"
+Tax Overpayment Anomaly,INV-4001,Global Office Supply Co,768.0,Tax amount is unusually high relative to invoice total.
