@@ -10,7 +10,7 @@ This project implements an end-to-end **AP Audit Recovery Pipeline** using **Pos
 
 * **Exact Duplicate Payment Detection:** Identifies multiple invoices billed by the same vendor for identical dollar amounts to prevent double disbursements.
 * **Split-Requisition Threshold Auditing:** Flags multiple invoices issued by the same vendor on the same day structured just below standard managerial approval limits.
-* **Tax & Freight Overpayment Auditing:** Identifies invoices where billed tax (`> 15%`) or freight charges exceed expected thresholds to catch vendor billing errors prior to settlement.
+* **Tax & Freight Overpayment Auditing:** Identifies invoices where billed tax is more than `15%` or freight charges exceed expected thresholds to catch vendor billing errors prior to settlement.
 * **Automated Exception Reporting:** Eliminates manual spreadsheet auditing by programmatically generating a clean CSV recovery log ready for vendor credit memos or payment holds.
 
 ## 🛠️ Tech Stack & Architecture
@@ -39,7 +39,7 @@ Execute the SQL scripts in sequential order inside your target PostgreSQL databa
 
 ```sql
 -- Step 1: Create the ap.ap_audit_transactions table
-\i sql/01_create_schema.sql
+\i sql/01_create_table.sql
 
 -- Step 2: Populate sample baseline & anomaly records
 \i sql/02_audit_data.sql
