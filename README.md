@@ -1,19 +1,19 @@
 # Automated AP Duplicate Payment & Audit Recovery Pipeline
 
-## 📌 Project Overview
+## Project Overview
 
 In enterprise Procure-to-Pay (PTP) operations, manual Accounts Payable (AP) reviews frequently miss disguised duplicate billings, split-requisition threshold bypasses, and vendor tax overcharges—resulting in direct cash leakage.
 
 This project implements an end-to-end **AP Audit Recovery Pipeline** using **PostgreSQL** and **Python (`pandas`, `psycopg2`)**. It pairs relational database modeling and standalone SQL audit rules with a Python automation engine that flags high-risk payment anomalies and exports an executive recovery report (`ap_audit_summary.csv`) for AP and Finance leadership.
 
-## 🎯 Business Objectives & Controls Implemented
+## Business Objectives & Controls Implemented
 
 * **Exact Duplicate Payment Detection:** Identifies multiple invoices billed by the same vendor for identical dollar amounts to prevent double disbursements.
 * **Split-Requisition Threshold Auditing:** Flags multiple invoices issued by the same vendor on the same day structured just below standard managerial approval limits.
 * **Tax & Freight Overpayment Auditing:** Identifies invoices where billed tax is more than `15%` or freight charges exceed expected thresholds to catch vendor billing errors prior to settlement.
 * **Automated Exception Reporting:** Eliminates manual spreadsheet auditing by programmatically generating a clean CSV recovery log ready for vendor credit memos or payment holds.
 
-## 🛠️ Tech Stack & Architecture
+## Tech Stack & Architecture
 
 * **Database & SQL Analytics:** PostgreSQL (`ap.ap_audit_transactions`)
 * **Automation & Data Processing:** Python 3, `pandas`, `psycopg2-binary`
@@ -31,7 +31,7 @@ This project implements an end-to-end **AP Audit Recovery Pipeline** using **Pos
 └── README.md                         # Project documentation
 ```
 
-## 🚀 How to Run Locally
+## How to Run Locally
 
 ### 1. Database Setup & SQL Verification (PostgreSQL)
 
@@ -65,7 +65,7 @@ set PGPASSWORD=your_postgres_password
 python audit_pipeline.py
 ```
 
-## 📊 Sample Output & Business Impact
+## Sample Output & Business Impact
 
 When executed against the test dataset (`17` AP transactions), the pipeline automatically surfaces planted leakage vectors and outputs a structured exception log:
 
